@@ -1,0 +1,21 @@
+body {
+    background-color: #F7F7F7 !important;
+}
+
+.container {
+    background-color: #F7F7F7 !important;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bg-body-tertiary {
+    background-color: #2A3459 !important;
+}
+
+.card-bottom {
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+}
