@@ -1,6 +1,6 @@
 let questions = [
     {
-        "question": "Wer hat HTML erfunden",
+        "question": "Wer hat HTML erfunden?",
         "answer_1": "Robbie Williams",
         "answer_2": "Lady Gaga",
         "answer_3": "Tim Berners-Lee",
@@ -136,3 +136,24 @@ let questions = [
         "right_answer": 1
     }
 ]
+
+let currentQuestion = 0;
+
+function init() {
+    renderMaxQestions();
+    showQuestion();
+}
+
+function renderMaxQestions() {
+    document.getElementById('maxQuestons').innerHTML = questions.length;
+}
+
+function showQuestion() {
+    let question = questions[currentQuestion];
+
+    document.getElementById('question').innerHTML = question['question'];
+    document.getElementById('answer_1').innerHTML = question['answer_1'];
+    document.getElementById('answer_2').innerHTML = question['answer_2'];
+    document.getElementById('answer_3').innerHTML = question['answer_3'];
+    document.getElementById('answer_4').innerHTML = question['answer_4'];
+}

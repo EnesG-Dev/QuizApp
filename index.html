@@ -21,7 +21,8 @@
     <link rel="stylesheet" href="style.css" />
     <script src="script.js"></script>
   </head>
-  <body>
+
+  <body onload="init()">
     <nav class="navbar bg-body-tertiary">
       <div class="container-fluid">
         <span class="navbar-brand mb-0 h1">Quiz App</span>
@@ -29,30 +30,26 @@
     </nav>
 
     <div class="container">
-        <div class="card text-center">
-            <div class="card-header p-0">
-              <img class="card-img-top" src="./img/quiz.jpg">
-            </div>
-            <div class="card-body">
-
-                <div class="card">
-                    <div class="card-header">Frage</div>
-                    <ul class="list-group list-group-flush">
-                      <li class="list-group-item">Antwort</li>
-                      <li class="list-group-item">Antwort</li>
-                      <li class="list-group-item">Antwort</li>
-                    </ul>
-                  </div>
-            </div>
-            <div class="card-footer text-body-secondary card-bottom">
-              <span>
-                <b>1</b> von <b>5</b> Fragen
-              </span>
-              <a href="#" class="btn btn-primary rounded-pill">Nächste Frage</a>
-            </div>
+      <div class="card text-center">
+        <div class="card-header p-0">
+          <img class="card-img-top" src="./img/quiz.jpg" />
+        </div>
+        <div class="card-body">
+          <div class="card">
+            <div id="question" class="card-header">Frage</div>
+            <ul class="list-group list-group-flush">
+              <li id="answer_1" class="list-group-item">Antwort</li>
+              <li id="answer_2" class="list-group-item">Antwort</li>
+              <li id="answer_3" class="list-group-item">Antwort</li>
+              <li id="answer_4" class="list-group-item">Antwort</li>
+            </ul>
           </div>
-
-      
+        </div>
+        <div class="card-footer text-body-secondary card-bottom">
+          <span> <b>1</b> von <b id="maxQuestons">5</b> Fragen </span>
+          <a href="#" class="btn btn-primary rounded-pill">Nächste Frage</a>
+        </div>
+      </div>
     </div>
   </body>
 </html>
