@@ -208,6 +208,9 @@ function removeAnswer() {
     }
 }
 
+/*
 function restartGame() {
 
 }
+*/
+
