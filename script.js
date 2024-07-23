@@ -137,7 +137,10 @@ let questions = [
     }
 ]
 
+let rightQuestions = 0;
 let currentQuestion = 0;
+let AUDIO_SUCCESS = new Audio('./audio/success.mp3');
+let AUDIO_FAIL = new Audio('./audio/fail.mp3');
 
 function init() {
     renderMaxQestions();
@@ -149,11 +152,62 @@ function renderMaxQestions() {
 }
 
 function showQuestion() {
+    if (currentQuestion >= questions.length) {
+        document.getElementById('endScreen').style = ' ';
+        document.getElementById('questionBody').style = "display: none";
+        
+        document.getElementById('amoutOf_rightQuestions').innerHTML = rightQuestions;
+        document.getElementById('amoutOf_maxQuestions').innerHTML = questions.length;
+
+        document.getElementById('headerIMG').src = './img/brain_result.png';
+    } else {
+
+        let precent = currentQuestion / questions.length;
+        precent = Math.round(precent * 100);
+        document.getElementById('progress_bar').innerHTML = `${precent} %`;
+        document.getElementById('progress_bar').style = `width: ${precent}%`;
+
     let question = questions[currentQuestion];
 
+    document.getElementById('question_number').innerHTML = currentQuestion +1;
     document.getElementById('question').innerHTML = question['question'];
     document.getElementById('answer_1').innerHTML = question['answer_1'];
     document.getElementById('answer_2').innerHTML = question['answer_2'];
     document.getElementById('answer_3').innerHTML = question['answer_3'];
     document.getElementById('answer_4').innerHTML = question['answer_4'];
+    }
+}
+
+function answer(selection) {
+    let right_answer = questions[currentQuestion].right_answer;
+
+    if (right_answer == selection) {
+        AUDIO_SUCCESS.play();
+        document.getElementById(`answer_${selection}`).classList.add('bg-success');
+        rightQuestions++
+    } else {
+        AUDIO_FAIL.play();
+        document.getElementById(`answer_${selection}`).classList.add('bg-danger');
+        document.getElementById(`answer_${right_answer}`).classList.add('bg-success');
+    }
+    document.getElementById('next_button').disabled = false;
+}
+
+function nextQuestion() {
+    currentQuestion ++;
+    
+    document.getElementById('next_button').disabled = true;
+    removeAnswer();
+    init();
+}
+
+function removeAnswer() {
+    for (let i = 1; i < 5; i++) {
+        document.getElementById(`answer_${i}`).classList.remove('bg-danger'); 
+        document.getElementById(`answer_${i}`).classList.remove('bg-success'); 
+    }
+}
+
+function restartGame() {
+
 }

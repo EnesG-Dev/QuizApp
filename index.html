@@ -32,22 +32,35 @@
     <div class="container">
       <div class="card text-center">
         <div class="card-header p-0">
-          <img class="card-img-top" src="./img/quiz.jpg" />
+          <img id="headerIMG" class="card-img-top" src="./img/quiz.jpg" />
         </div>
+
+        <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+            <div id="progress_bar" class="progress-bar" style="width: 25%">25%</div>
+        </div>
+
         <div class="card-body">
-          <div class="card">
+
+
+            <div id="endScreen" style = "display: none">
+                <h2>COMPLETE <br> HTML QUIZ</h2>
+                <p>YOUR SCORE <b id="amoutOf_rightQuestions">0</b> / <b id="amoutOf_maxQuestions">0</b></p>
+            </div>
+
+
+          <div id="questionBody" class="card">
             <div id="question" class="card-header">Frage</div>
             <ul class="list-group list-group-flush">
-              <li id="answer_1" class="list-group-item">Antwort</li>
-              <li id="answer_2" class="list-group-item">Antwort</li>
-              <li id="answer_3" class="list-group-item">Antwort</li>
-              <li id="answer_4" class="list-group-item">Antwort</li>
+              <li id="answer_1" class="list-group-item quiz-answer-card" onclick="answer(1)">Antwort</li>
+              <li id="answer_2" class="list-group-item quiz-answer-card" onclick="answer(2)">Antwort</li>
+              <li id="answer_3" class="list-group-item quiz-answer-card" onclick="answer(3)">Antwort</li>
+              <li id="answer_4" class="list-group-item quiz-answer-card" onclick="answer(4)">Antwort</li>
             </ul>
           </div>
         </div>
         <div class="card-footer text-body-secondary card-bottom">
-          <span> <b>1</b> von <b id="maxQuestons">5</b> Fragen </span>
-          <a href="#" class="btn btn-primary rounded-pill">Nächste Frage</a>
+          <span> <b id="question_number">1</b> von <b id="maxQuestons">5</b> Fragen </span>
+          <button id="next_button" disabled type="button" class="btn btn-primary rounded-pill" onclick="nextQuestion()">Nächste Frage</button>
         </div>
       </div>
     </div>

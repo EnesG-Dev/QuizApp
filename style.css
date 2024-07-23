@@ -19,3 +19,12 @@ body {
     display: flex;
     align-items: center;
 }
+
+.quiz-answer-card:hover {
+    cursor: pointer;
+    background-color: #e8fff2;
+}
+
+.bg-success, .bg-danger {
+    color: white;
+}
